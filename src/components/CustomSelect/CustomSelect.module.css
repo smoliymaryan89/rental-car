@@ -1,0 +1,75 @@
+.custom-select__indicator-separator {
+  @apply hidden;
+}
+
+.custom-select__indicator {
+  @apply !p-0;
+}
+
+.custom-select__indicator svg {
+  @apply !p-0 transform rotate-0 transition-all duration-200;
+}
+
+.custom-select__control--menu-is-open .custom-select__indicator svg {
+  @apply transform rotate-180 transition-all duration-200;
+}
+
+.custom-select__indicator svg {
+  @apply !fill-secondary;
+}
+
+.custom-select__control {
+  @apply px-[18px] py-[14px] h-[48px] !rounded-[14px] !bg-light-white !border-none;
+}
+
+.custom-select__control--is-focused {
+  @apply !shadow-none;
+}
+
+.custom-select__value-container {
+  @apply !p-0 !m-0;
+}
+
+.custom-select__input-container {
+  @apply !p-0 !m-0 !text-secondary !text-[18px] !font-medium leading-[1.1];
+}
+
+.custom-select__single-value {
+  @apply !m-0 !text-secondary !text-[18px] !font-medium leading-[1.1];
+}
+
+.custom-select__placeholder {
+  @apply !text-secondary !text-[18px] !font-medium !m-0 leading-[1.1];
+}
+
+.custom-select__menu {
+  @apply !mt-[4px] !pl-[18px] !mb-0 !pr-[8px] !py-[14px] !rounded-[14px] !bg-white !shadow-select-shadow !border !border-grey-0.05;
+}
+
+.custom-select__menu-list {
+  @apply !p-0;
+}
+
+.custom-select__option {
+  @apply !p-0 !text-grey-20 !text-[16px] !font-medium leading-[1.25] !mb-[8px];
+}
+
+.custom-select__option:active {
+  @apply !bg-transparent;
+}
+
+.custom-select__option:last-child {
+  @apply !mb-0;
+}
+
+.custom-select__option--is-focused {
+  @apply !bg-transparent;
+}
+
+.custom-select__option--is-selected {
+  @apply !bg-transparent !text-secondary;
+}
+
+.custom-select__MenuList2::-webkit-scrollbar {
+  @apply !bg-black;
+}
