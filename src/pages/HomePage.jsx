@@ -7,7 +7,7 @@ const HomePage = () => {
     <Container>
       <div className="bg-hero-img bg-no-repeat bg-cover absolute top-0 left-0 w-full h-full -z-10"></div>
       <div>
-        <div className="max-w-[500px] pt-[65px]">
+        <div className="max-w-[500px] pt-[80px]">
           <h1 className="text-white text-[46px] font-bold mb-[20px] leading-[1.2]">
             Explore the freedom of car rental with
             <span className="text-blue"> Drivewise.</span>
