@@ -52,14 +52,18 @@ const carSlice = createSlice({
       );
     },
     setFilter(state, { payload }) {
-      state.filter = { ...state.filter, ...payload };
+      state.filter = payload;
       state.cars.items = [];
     },
   },
   extraReducers: (builder) => {
     builder
-      .addCase(getCarByPage.fulfilled, (state, { payload }) => {
-        state.cars.items.push(...payload);
+      .addCase(getCarByPage.fulfilled, (state, action) => {
+        if (action.meta.arg.page === 1) {
+          state.cars.items = action.payload;
+        } else {
+          state.cars.items.push(...action.payload);
+        }
 
         handleFulfilled(state);
       })
