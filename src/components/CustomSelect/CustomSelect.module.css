@@ -15,7 +15,7 @@
 }
 
 .custom-select__indicator svg {
-  @apply !fill-secondary;
+  @apply !fill-primary;
 }
 
 .custom-select__control {
@@ -31,15 +31,15 @@
 }
 
 .custom-select__input-container {
-  @apply !p-0 !m-0 !text-secondary !text-[18px] !font-medium leading-[1.1];
+  @apply !p-0 !m-0 !text-primary !text-[18px] !font-medium leading-[1.1];
 }
 
 .custom-select__single-value {
-  @apply !m-0 !text-secondary !text-[18px] !font-medium leading-[1.1];
+  @apply !m-0 !text-primary !text-[18px] !font-medium leading-[1.1];
 }
 
 .custom-select__placeholder {
-  @apply !text-secondary !text-[18px] !font-medium !m-0 leading-[1.1];
+  @apply !text-primary !text-[18px] !font-medium !m-0 leading-[1.1];
 }
 
 .custom-select__menu {
@@ -67,7 +67,7 @@
 }
 
 .custom-select__option--is-selected {
-  @apply !bg-transparent !text-secondary;
+  @apply !bg-transparent !text-primary;
 }
 
 .custom-select__MenuList2::-webkit-scrollbar {
