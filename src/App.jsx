@@ -1,6 +1,9 @@
-import { lazy } from "react";
+import { lazy, useEffect } from "react";
 
 import { Navigate, Route, Routes } from "react-router-dom";
+
+import { useDispatch } from "react-redux";
+import { getFavorites } from "./redux/car/carSlice";
 
 import Layout from "./layouts/Layout";
 
@@ -9,6 +12,12 @@ const CatalogPage = lazy(() => import("./pages/CatalogPage"));
 const FavoritesPage = lazy(() => import("./pages/FavoritesPage"));
 
 const App = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getFavorites());
+  }, [dispatch]);
+
   return (
     <Routes>
       <Route path="/" element={<Layout />}>

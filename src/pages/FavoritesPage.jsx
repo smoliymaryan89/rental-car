@@ -1,19 +1,10 @@
-import { useEffect } from "react";
-
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { selectFavorite } from "../redux/car/carSelectors";
-import { getFavorites } from "../redux/car/carSlice";
 
 import CarList from "../components/CarList/CarList";
 import Container from "../components/Container/Container";
 
 const FavoritesPage = () => {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getFavorites());
-  }, [dispatch]);
-
   const favoriteCars = useSelector(selectFavorite);
 
   return (
