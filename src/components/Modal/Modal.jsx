@@ -35,7 +35,7 @@ const Modal = ({
   const rentalConditionsArr = rentalConditions.split("\n");
   rentalConditionsArr.push(`Mileage: ${mileage}`);
 
-  rentalConditionsArr.push(`Price: ${price}$`);
+  rentalConditionsArr.push(`Price: ${price}`);
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -62,33 +62,40 @@ const Modal = ({
       onClick={handleBackdropClick}
       className="fixed top-0 left-0 w-[100vw] h-[100vh] flex items-center justify-center bg-secondary "
     >
-      <div className="relative bg-white px-[40px] pt-[20px] pb-[40px] rounded-[24px]">
-        <button type="button" onClick={handleModal}>
-          <Close className="absolute top-[16px] right-[16px]" />
+      <div className="relative bg-white px-[40px] py-[40px] rounded-[24px]">
+        <button
+          type="button"
+          onClick={handleModal}
+          className="flex items-center justify-center absolute top-[16px] right-[16px]"
+        >
+          <Close className="block " />
         </button>
 
-        <div className="w-[461px] rounded-[14px] bg-[#F3F3F2] mb-[14px]">
+        <div className="w-[461px] h-[248px] rounded-[14px] bg-[#F3F3F2]  mb-[14px]">
           <img
             src={img}
             alt=""
             width={461}
             height={248}
-            className="rounded-[14px] block"
+            className="rounded-[14px] h-[248px] object-cover"
           />
         </div>
+
         <div className="text-left mb-[24px]">
           <h2 className=" text-[18px] text-primary font-medium leading-[1.3] mb-[8px]">
             {make} <span className="text-blue">{model},</span> {year}
           </h2>
 
           <ul className="flex gap-x-[12px] flex-wrap w-[288px] mb-[14px]">
-            <li>{address.split(" ")[3]}</li>
-            <li>{address.split(" ")[4]}</li>
-            <li>Id: {id}</li>
-            <li>Year: {year}</li>
-            <li>Type: {type}</li>
-            <li>Fuel Consumption: {fuelConsumption}</li>
-            <li>Engine Size: {engineSize}</li>
+            <li className="text-secondary">{address.split(" ")[3]}</li>
+            <li className="text-secondary">{address.split(" ")[4]}</li>
+            <li className="text-secondary">Id: {id}</li>
+            <li className="text-secondary">Year: {year}</li>
+            <li className="text-secondary">Type: {type}</li>
+            <li className="text-secondary">
+              Fuel Consumption: {fuelConsumption}
+            </li>
+            <li className="text-secondary">Engine Size: {engineSize}</li>
           </ul>
 
           <p className="text-primary text-[14px] leading-[1.43] max-w-[461px]">
@@ -108,19 +115,43 @@ const Modal = ({
             ))}
           </ul>
         </div>
+
         <div className="mb-[24px]">
           <h2 className="text-left text-primary text-[14px] leading-[1.43] font-medium mb-[8px]">
             Rental Conditions:
           </h2>
           <ul className="flex gap-[8px] flex-wrap max-w-[380px]">
-            {rentalConditionsArr.map((data) => (
-              <li
-                key={data}
-                className="text-dark bg-dark-white rounded-[35px] py-[7px] px-[14px] leading-[1.5] tracking-[-0.24px] "
-              >
-                {data}
-              </li>
-            ))}
+            {rentalConditionsArr.map((data, i) => {
+              const [text, number] = data.split(":");
+              let formattedNumber = number;
+              if (/\d/.test(number)) {
+                const cleanedNumber = number.replace("$", "");
+                formattedNumber = Number(cleanedNumber).toLocaleString();
+                if (i === rentalConditionsArr.length - 1) {
+                  formattedNumber += "$";
+                }
+                return (
+                  <li
+                    key={data}
+                    className="text-dark bg-dark-white rounded-[35px] py-[7px] px-[14px] leading-[1.5] tracking-[-0.24px]"
+                  >
+                    <span>{text}:</span>
+                    <span style={{ color: "#3470FF", fontWeight: 600 }}>
+                      {formattedNumber}
+                    </span>
+                  </li>
+                );
+              } else {
+                return (
+                  <li
+                    key={data}
+                    className="text-dark bg-dark-white rounded-[35px] py-[7px] px-[14px] leading-[1.5] tracking-[-0.24px]"
+                  >
+                    <span>{text}</span>
+                  </li>
+                );
+              }
+            })}
           </ul>
         </div>
 
